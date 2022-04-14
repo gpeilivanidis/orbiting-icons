@@ -1,0 +1,92 @@
+@import 'reset';
+@import 'config';
+
+.orbiting-icons-container{
+    position: relative;
+    
+    block-size: 80vh;
+    inline-size: 50%;
+    margin-inline: auto;
+    margin-block: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-img-container{
+    inline-size: 20%;
+}
+
+// this is the circle path
+.balls-container{
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 200px;
+    border-radius: 50%;
+
+}
+
+// every ball must have the center as initial position
+.ball-initial-pos{
+    position: absolute;
+}
+
+.ball{
+
+    // it's relative to it's initial position
+    position: relative;
+
+    border-radius: 50%;
+    inline-size: 100px;
+    block-size: 100px;
+    background-color: goldenrod;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 100ms ease-in-out;
+}
+
+.rotation{
+    animation: rotate 60s linear infinite;
+    transition: all 100ms ease-in-out;
+}
+
+.fix-rotate{
+    animation: rotate 60s linear infinite reverse;
+    transition: all 100ms ease-in-out;
+}
+
+.scaling{
+    animation: scale 1000ms ease-in-out infinite alternate-reverse;
+    transition: all 100ms ease-in-out;
+
+    &:hover{
+        animation-play-state: paused;
+        transition: all 100ms ease-in-out;
+    }
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes scale{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.05);
+    }
+}
